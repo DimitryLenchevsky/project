@@ -6,15 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
-    <h1>Hello World!</h1>
-    <p>Дата на сегодня: {{ my_date }}</p>
-    <p>Some value is: {{some_value}}</p>
-    <ul>
-        {% for element in my_data %}
-            <li>The element is - {{ element }}</li>
-        {% endfor %}
-    </ul>
-    <p>{{ my_data }}</p>
-</body>
+    <body>
+        <table border=1>
+            <tr>
+                <th>pk</th><th>name</th><th>description</th>
+            </tr>
+            {% for genre in genres %}
+            <tr>
+                <td>{{ genre.pk }}</td><td>{{ genre.name }}</td><td>{{ genre.description }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </body>
 </html>
