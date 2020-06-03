@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
     <body>
+        <h1>Genres</h1>
         <table border=1>
             <tr>
                 <th>pk</th><th>name</th><th>description</th>
@@ -14,6 +15,18 @@
             {% for genre in genres %}
             <tr>
                 <td>{{ genre.pk }}</td><td>{{ genre.name }}</td><td>{{ genre.description }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        <h1>Books</h1>
+        <table border=1>
+            <tr>
+                <th>pk</th><th>name</th><th>genre</th><th>created</th><th>updated</th>
+            </tr>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.pk }}</td><td>{{ book.name }}</td><td>{{ book.genre }}</td><td>{{ book.created }}</td><td>{{ book.updated }}</td>
             </tr>
             {% endfor %}
 

@@ -33,6 +33,16 @@ class Book(models.Model):
         null=True,
         blank=True
     )
+    created = models.DateTimeField(
+        verbose_name="Создано",
+        auto_now=False,
+        auto_now_add=True
+    )
+    updated = models.DateTimeField(
+        verbose_name="Изменено",
+        auto_now=True,
+        auto_now_add=False
+    )
 
     def __str__(self):
         return self.name
