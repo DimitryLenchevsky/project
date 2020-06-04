@@ -7,29 +7,18 @@
     <title>Document</title>
 </head>
     <body>
-        <h1>Genres</h1>
+        <h1>Parsing</h1>
         <table border=1>
             <tr>
-                <th>pk</th><th>name</th><th>description</th>
+                <th>Browsers</th><th>17th of May</th><th>18th of May</th><th>19th of May</th><th>20th of May</th>
             </tr>
-            {% for genre in genres %}
             <tr>
-                <td>{{ genre.pk }}</td><td>{{ genre.name }}</td><td>{{ genre.description }}</td>
+                <td>{{ name_safari }}</td><td>{{ sa17 }}</td><td>{{ sa18 }}</td><td>{{ sa19 }}</td><td>{{ sa20 }}</td>
             </tr>
-            {% endfor %}
-
+            <tr>
+                <td>{{ name_firefox }}</td><td>{{ ff17 }}</td><td>{{ ff18 }}</td><td>{{ ff19 }}</td><td>{{ ff20 }}</td>
+            </tr>
         </table>
-        <h1>Books</h1>
-        <table border=1>
-            <tr>
-                <th>pk</th><th>name</th><th>genre</th><th>created</th><th>updated</th>
-            </tr>
-            {% for book in books %}
-            <tr>
-                <td>{{ book.pk }}</td><td>{{ book.name }}</td><td>{{ book.genre }}</td><td>{{ book.created }}</td><td>{{ book.updated }}</td>
-            </tr>
-            {% endfor %}
 
-        </table>
     </body>
 </html>
