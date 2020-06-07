@@ -14,8 +14,9 @@ class Genre(models.Model):
          blank=True
      )
 
-     def __str__(self):
-         return self.name 
+
+     def my_method(self):
+         return "abc"
 
 class Book(models.Model):
      name = models.CharField(

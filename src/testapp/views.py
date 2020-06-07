@@ -1,23 +1,51 @@
-from django.shortcuts import render
-from django.http import HttpResponse
 from . models import Genre, Book
 from . forms import CreateGenreForm
+from django.views.generic import CreateView, UpdateView, ListView
 # Create your views here.
 
 
-def test(request, pk):
+from django.views.generic.base import TemplateView
 
-    #obj.Genre(name=name, description=description)
-    post_data = request.POST
-    name = request.POST.get('name')
-    description = request.POST.get('description')
-    obj = Genre.objects.get(pk=pk)
+class Test(TemplateView):
+    template_name = 'testapp/test.html'
 
-    form = CreateGenreForm({'name': obj.name, 'description': obj.description})
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['rate'] = self.get_rate()
+        return context
 
-    print(request.method)
+    def get_rate(self):
+        # from API
+        return 2.75
+
+
+# для Create
+# 1 определить метод get или post
+# 2 если get - создать форму, подкинуть в контекст и создать старницу
+# 3 если post - получить данные из post запроса, создать объект и сохранить его в БД
+# 4 показать другую страницу (сообщение об успехе)
+
+class CreateGenre(CreateView):
+
+    model = Genre
+    form_class = CreateGenreForm
+    template_name = 'testapp/create_genre.html'
+    success_url = '/test/3'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['rate'] = 123
+        return context
+
+class UpdateGenre(UpdateView):
+
+    model = Genre
+    form_class = CreateGenreForm
+    template_name = 'testapp/create_genre.html'
+    success_url = '/test/3'
+
+class ListGenre(ListView):
+
+    model = Genre
+    template_name = 'testapp/create_genre.html'
     
-    #obj.save()
-    #books = Book.objects.all()
-    context = {'form' : form}
-    return render(request, template_name="testapp/test.html", context=context)
