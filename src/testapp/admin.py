@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from . models import Parsing
+from . models import Genre
 
 # Register your models here.
 
-admin.site.register(Parsing)
+admin.site.register(Genre)

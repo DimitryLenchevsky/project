@@ -7,18 +7,10 @@
     <title>Document</title>
 </head>
     <body>
-        <h1>Parsing</h1>
-        <table border=1>
-            <tr>
-                <th>Browsers</th><th>17th of May</th><th>18th of May</th><th>19th of May</th><th>20th of May</th>
-            </tr>
-            <tr>
-                <td>{{ name_safari }}</td><td>{{ sa17 }}</td><td>{{ sa18 }}</td><td>{{ sa19 }}</td><td>{{ sa20 }}</td>
-            </tr>
-            <tr>
-                <td>{{ name_firefox }}</td><td>{{ ff17 }}</td><td>{{ ff18 }}</td><td>{{ ff19 }}</td><td>{{ ff20 }}</td>
-            </tr>
-        </table>
-
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type='submit' value='SUBMIT'>
+        </form>
     </body>
 </html>

@@ -21,5 +21,5 @@ from testapp.views import test
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', test)
+    path('test/<int:pk>', test)
 ]
