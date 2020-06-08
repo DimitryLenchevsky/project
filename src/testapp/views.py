@@ -48,4 +48,11 @@ class ListGenre(ListView):
 
     model = Genre
     template_name = 'testapp/create_genre.html'
-    
+    queryset = Genre.objects.all()
+
+    def get_context_data(self, **kwargs):
+        # В первую очередь получаем базовую реализацию контекста
+        context = super().get_context_data(**kwargs)
+        # Добавляем новую переменную к контексту и иниуиализируем ее некоторым значением
+        context['some_data'] = 'This is just some data'
+        return context
