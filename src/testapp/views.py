@@ -1,6 +1,6 @@
 from . models import Genre, Book
 from . forms import CreateGenreForm
-from django.views.generic import CreateView, UpdateView, ListView
+from django.views.generic import CreateView, UpdateView, ListView, DeleteView
 # Create your views here.
 
 
@@ -26,33 +26,23 @@ class Test(TemplateView):
 # 4 показать другую страницу (сообщение об успехе)
 
 class CreateGenre(CreateView):
-
     model = Genre
     form_class = CreateGenreForm
     template_name = 'testapp/create_genre.html'
-    success_url = '/test/3'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['rate'] = 123
-        return context
+    success_url = '/list-genre/'
 
 class UpdateGenre(UpdateView):
-
     model = Genre
     form_class = CreateGenreForm
     template_name = 'testapp/create_genre.html'
-    success_url = '/test/3'
+    success_url = '/list-genre/'
 
 class ListGenre(ListView):
+    model = Genre
+    template_name = 'testapp/list_genre.html'
+    
+class DeleteGenre(DeleteView):
 
     model = Genre
-    template_name = 'testapp/create_genre.html'
-    queryset = Genre.objects.all()
-
-    def get_context_data(self, **kwargs):
-        # В первую очередь получаем базовую реализацию контекста
-        context = super().get_context_data(**kwargs)
-        # Добавляем новую переменную к контексту и иниуиализируем ее некоторым значением
-        context['some_data'] = 'This is just some data'
-        return context
+    template_name = 'testapp/delete_genre.html'
+    success_url = '/list-genre/'

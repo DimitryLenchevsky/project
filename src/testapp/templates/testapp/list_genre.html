@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+    <body>
+        <h1>Список Жанров</h1>
+        <a href="/create-genre/">Create new Genre</a>
+        <table border="1" width="100%">
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>#</th>
+            </tr>
+            {% for obj in object_list %}
+                <tr>
+                    <td>{{ obj.pk }}</td>
+                    <td>{{ obj.name }}</td>
+                    <td><a href="/update-genre/{{ obj.pk }}">edit</a><br>
+                    <a href="/delete-genre/{{ obj.pk }}">delete</td> 
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

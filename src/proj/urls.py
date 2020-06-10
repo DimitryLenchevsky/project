@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from testapp.views import Test, CreateGenre, UpdateGenre, ListGenre
+from testapp.views import Test, CreateGenre, UpdateGenre, ListGenre, DeleteGenre
 
 # http://127.0.0.1:8000/
 
@@ -25,4 +25,5 @@ urlpatterns = [
     path('create-genre/', CreateGenre.as_view()),
     path('update-genre/<int:pk>', UpdateGenre.as_view()),
     path('list-genre/', ListGenre.as_view()),
+    path('delete-genre/<int:pk>', DeleteGenre.as_view()),
 ]
