@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'testapp',
+    'phones',
+    'catalogs',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +58,7 @@ ROOT_URLCONF = 'proj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR), 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,3 +130,5 @@ STATIC_ROOT = '/home/DimitryLenchevsky/test_shop/static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/DimitryLenchevsky/test_shop/media'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

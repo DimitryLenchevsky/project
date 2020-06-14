@@ -10,7 +10,7 @@
 </head>
     <body>
         <h1>Список Жанров</h1>
-        <a href="/create-genre/" class="btn btn-outline-info">Create new Genre</a>
+        <a href="{% url 'create-genre' %}" class="btn btn-outline-info">Create new Genre</a>
         <table class="table table-hover">
             <tr scope="row">
                 <th scope="col">id</th>
@@ -21,7 +21,7 @@
             <tr scope="row">
                 <td>{{ obj.pk }}</td>
                 <td>{{ obj.name }}</td>
-                <td><a href="/update-genre/{{ obj.pk }}"><i class="fas fa-edit"></i></a><br>
+                <td><a href="{% url 'update-genre' obj.pk %}"><i class="fas fa-edit"></i></a><br>
                 <a href="/delete-genre/{{ obj.pk }}"><i class="fas fa-trash-alt"></i></td> 
             </tr>
             {% endfor %}
