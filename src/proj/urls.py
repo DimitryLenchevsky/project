@@ -29,5 +29,4 @@ urlpatterns = [
     path('list-genre/', ListGenre.as_view()),
     path('delete-genre/<int:pk>', DeleteGenre.as_view()),
     path('catalogs/', include('catalogs.urls', namespace='catalogs'))
-    
 ]
