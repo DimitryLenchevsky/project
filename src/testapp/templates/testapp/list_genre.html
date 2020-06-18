@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-    {% block title %} Phone types list {% endblock title %}
+    {% block title %} Genres list {% endblock title %}
 {% block body %}
         <h1>Список Жанров</h1>
         <a href="{% url 'create-genre' %}" class="btn btn-outline-info">Create new Genre</a>
@@ -14,7 +14,8 @@
             <tr scope="row">
                 <td>{{ obj.pk }}</td>
                 <td>{{ obj.name }}</td>
-                <td><a href="{% url 'update-genre' obj.pk %}">Upgrade<i class="fas fa-edit"></i></a><br>
+                <td><a href="{% url 'create-genre' %}">Create<i class="fas fa-create"></i></a><br>
+                <a href="{% url 'update-genre' obj.pk %}">Update<i class="fas fa-edit"></i></a><br>
                 <a href="/delete-genre/{{ obj.pk }}">Delete<i class="fas fa-trash-alt"></i></td> 
             </tr>
             {% endfor %}
