@@ -1,6 +1,6 @@
 from . models import Genre, Book
 from . forms import CreateGenreForm
-from django.views.generic import CreateView, UpdateView, ListView, DeleteView
+from django.views.generic import CreateView, UpdateView, ListView, DeleteView, DetailView
 # Create your views here.
 
 
@@ -34,7 +34,7 @@ class CreateGenre(CreateView):
 class UpdateGenre(UpdateView):
     model = Genre
     form_class = CreateGenreForm
-    template_name = 'testapp/create_genre.html'
+    template_name = 'testapp/update_genre.html'
     success_url = '/list-genre/'
 
 class ListGenre(ListView):
@@ -46,3 +46,7 @@ class DeleteGenre(DeleteView):
     model = Genre
     template_name = 'testapp/delete_genre.html'
     success_url = '/list-genre/'
+
+class DetailGenre(DetailView):
+    model = Genre
+    template_name = 'testapp/detail_genre.html'

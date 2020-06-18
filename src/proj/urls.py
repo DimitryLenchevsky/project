@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from testapp.views import Test, CreateGenre, UpdateGenre, ListGenre, DeleteGenre
+from testapp.views import Test, CreateGenre, UpdateGenre, ListGenre, DeleteGenre, DetailGenre
 
 #from catalogs import urls as catalogs_urls
 
@@ -27,6 +27,7 @@ urlpatterns = [
     path('mega-create-genre/', CreateGenre.as_view(), name='create-genre'),
     path('update-genre/<int:pk>', UpdateGenre.as_view(), name='update-genre'),
     path('list-genre/', ListGenre.as_view()),
+    path('genre-type/<int:pk>', DetailGenre.as_view(), name='genre-type'),
     path('delete-genre/<int:pk>', DeleteGenre.as_view()),
     path('catalogs/', include('catalogs.urls', namespace='catalogs'))
 ]
