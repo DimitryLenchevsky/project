@@ -29,5 +29,6 @@ urlpatterns = [
     path('list-genre/', ListGenre.as_view()),
     path('genre-type/<int:pk>', DetailGenre.as_view(), name='genre-type'),
     path('delete-genre/<int:pk>', DeleteGenre.as_view()),
-    path('catalogs/', include('catalogs.urls', namespace='catalogs'))
+    path('catalogs/', include('catalogs.urls', namespace='catalogs')),
+    path('landing/', include('landing.urls', namespace='landing'))
 ]

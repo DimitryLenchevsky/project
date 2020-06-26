@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'testapp',
     'phones',
     'catalogs',
+    'landing',
+    'products',
+    'orders',
+    
 ]
 
 MIDDLEWARE = [
