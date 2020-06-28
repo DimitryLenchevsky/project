@@ -15,6 +15,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'pk',
         'name', 
+        'price',
         'description', 
         'is_active', 
         'created', 
