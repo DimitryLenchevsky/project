@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from testapp.views import Test, CreateGenre, UpdateGenre, ListGenre, DeleteGenre, DetailGenre
+from django.conf.urls.static import static
+from django.conf import settings
 
 #from catalogs import urls as catalogs_urls
 
@@ -30,8 +32,8 @@ urlpatterns = [
     path('genre-type/<int:pk>', DetailGenre.as_view(), name='genre-type'),
     path('delete-genre/<int:pk>', DeleteGenre.as_view()),
     path('catalogs/', include('catalogs.urls', namespace='catalogs')),
-    path('landing/', include('landing.urls', namespace='landing')),
-    #path('products/', include('products.urls', namespace='products')),
-    #path('orders/', include('orders.urls', namespace='orders')),
+    path('', include('landing.urls', namespace='landing')),
+    path('', include('products.urls', namespace='products')),
+    path('', include('orders.urls', namespace='orders')),
 
-]
+] 

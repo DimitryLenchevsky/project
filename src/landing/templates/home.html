@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+    {% block title %} Home Page {% endblock title %}
+<link href="{% static 'css/carousel.css' %}" rel="stylesheet">
+{% block content %}
+    <div class="section-top">
+        <img src="{% static 'img/slider.jpg' %}" class='img-responsive' width="100%">
+    </div>
+    <div class='section'>
+        <div class='container'>
+            <div class="row">
+            {% for product_image in products_images %}
+                <div class="col-lg-3">
+                    <div class='product-item'>
+                        <!--<div>
+                            <img src='product_image.image.url' class="image-responsive">
+                        </div>-->
+                        <h6>{{ product_image.product.name }}</h6>
+                        <p>
+                            {{ product_image.product.description|truncatechars_html:70 }}
+                        </p>
+                        <p>
+                            {{ product_image.product.price }} руб.
+                        </p>
+                        <div class="add-to-cart-btn">
+                            <button class='btn btn-success'>
+                                В корзину
+                            </button>
+                        </div>    
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+   
+{% endblock content %}

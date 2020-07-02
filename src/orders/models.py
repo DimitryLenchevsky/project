@@ -38,7 +38,7 @@ class Order(models.Model):
         verbose_name_plural = 'Заказы'
 
     def save(self, *args, **kwargs):
-        
+       
         super(Order, self).save(*args, **kwargs)
 
 
@@ -60,7 +60,7 @@ class ProductInOrder(models.Model):
         verbose_name = 'Товар в заказе'
         verbose_name_plural = 'Товары в заказе'
 
-    
+   
     def save(self, *args, **kwargs):
         price_per_item = self.product.price
         self.price_per_item = price_per_item

@@ -14,11 +14,11 @@ class ProductAdmin(admin.ModelAdmin):
 
     list_display = (
         'pk',
-        'name', 
+        'name',
         'price',
-        'description', 
-        'is_active', 
-        'created', 
+        'description',
+        'is_active',
+        'created',
         'updated',
         )
     inlines = [ProductImageInline]
@@ -32,10 +32,11 @@ admin.site.register(Product, ProductAdmin)
 class ProductImageAdmin(admin.ModelAdmin):
 
     list_display = (
-        'product', 
-        'image', 
-        'is_active', 
-        'created', 
+        'product',
+        'image',
+        'is_active',
+        'is_main',
+        'created',
         'updated',
         )
 
