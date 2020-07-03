@@ -9,6 +9,7 @@
     </div>
     <div class='section'>
         <div class='container'>
+            <h1 class='text-center'>Новые товары</h1>
             <div class="row">
             {% for product_image in products_images %}
                 <div class="col-lg-3">
@@ -33,6 +34,10 @@
             {% endfor %}
             </div>
         </div>
+        <div class="section-top">
+        <img src="{% static 'img/delivery.jpg' %}" class='img-responsive' width="100%">
+        </div>
+    </div>
     </div>
    
 {% endblock content %}

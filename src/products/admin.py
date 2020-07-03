@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, ProductImage
+from .models import Product, ProductImage, ProductGenre
 
 # Register your models here.
 
@@ -9,13 +9,25 @@ class ProductImageInline(admin.TabularInline):
     extra = 0
 
 
+class ProductGenreAdmin(admin.ModelAdmin):
+
+    list_display = (
+        'pk',
+        'name',
+        'is_active',
+    )
+    class Meta:
+        model = ProductGenre
+admin.site.register(ProductGenre, ProductGenreAdmin)
 
 class ProductAdmin(admin.ModelAdmin):
 
     list_display = (
         'pk',
         'name',
+        'author',
         'price',
+        'genre',
         'description',
         'is_active',
         'created',
