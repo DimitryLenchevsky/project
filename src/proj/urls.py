@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from testapp.views import Test, CreateGenre, UpdateGenre, ListGenre, DeleteGenre, DetailGenre
-from django.conf.urls.static import static
 from django.conf import settings
+from django.conf.urls.static import static
 
 #from catalogs import urls as catalogs_urls
 
@@ -36,4 +36,4 @@ urlpatterns = [
     path('', include('products.urls', namespace='products')),
     path('', include('orders.urls', namespace='orders')),
 
-] 
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
