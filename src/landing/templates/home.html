@@ -15,11 +15,11 @@
                 <div class="col-lg-3">
                     <div class='product-item'>
                         <div>
-                            <img src='product_image.image.url' class="image-responsive">
+                            <img src='{{ product_image.image.url }}' class="image-responsive" width='100px' height='150px'>
                         </div>
-                        <h6>{{ product_image.product.name }}</h6>
+                        <h6>{{ product_image.product.name|truncatechars_html:25 }}</h6>
                         <p>
-                            {{ product_image.product.description|truncatechars_html:70 }}
+                            {{ product_image.product.author|truncatechars_html:20 }}
                         </p>
                         <p>
                             {{ product_image.product.price }} руб.
