@@ -7,11 +7,65 @@
     <div class="section-top">
         <img src="{% static 'img/slider.jpg' %}" class='img-responsive' width="100%">
     </div>
-    <div class='section'>
+    <div class='section section1'>
         <div class='container'>
             <h1 class='text-center'>Новые товары</h1>
             <div class="row">
             {% for product_image in products_images %}
+                <div class="col-lg-3">
+                    <div class='product-item'>
+                        <div>
+                            <img src='{{ product_image.image.url }}' class="image-responsive" width='100px' height='150px'>
+                        </div>
+                        <h6>{{ product_image.product.name|truncatechars_html:25 }}</h6>
+                        <p>
+                            {{ product_image.product.author|truncatechars_html:20 }}
+                        </p>
+                        <p>
+                            {{ product_image.product.price }} руб.
+                        </p>
+                        <div class="add-to-cart-btn">
+                            <button class='btn btn-success'>
+                                В корзину
+                            </button>
+                        </div>    
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class='section section2 sf-container'>
+        <div class='container'>
+            <h1 class='text-center'>Научная фантастика</h1>
+            <div class="row">
+            {% for product_image in products_images_sf %}
+                <div class="col-lg-3">
+                    <div class='product-item'>
+                        <div>
+                            <img src='{{ product_image.image.url }}' class="image-responsive" width='100px' height='150px'>
+                        </div>
+                        <h6>{{ product_image.product.name|truncatechars_html:25 }}</h6>
+                        <p>
+                            {{ product_image.product.author|truncatechars_html:20 }}
+                        </p>
+                        <p>
+                            {{ product_image.product.price }} руб.
+                        </p>
+                        <div class="add-to-cart-btn">
+                            <button class='btn btn-success'>
+                                В корзину
+                            </button>
+                        </div>    
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class='section section3 ed-container'>
+        <div class='container'>
+            <h1 class='text-center'>Исторические</h1>
+            <div class="row">
+            {% for product_image in products_images_history %}
                 <div class="col-lg-3">
                     <div class='product-item'>
                         <div>
