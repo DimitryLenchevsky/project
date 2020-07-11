@@ -4,5 +4,53 @@
     {% block title %} Product Page {% endblock title %}
 <link href="{% static 'css/carousel.css' %}" rel="stylesheet">
 {% block content %}
-Hello
+<div class='container'>
+    <div class="row">
+        <div class="col-lg-6">
+                <br>
+                <br>
+                <br>
+            {% for image_item in product.productimage_set.all %}
+            <img src="{{ image_item.image.url }}" class="image-responsive">
+            {% endfor %}
+        </div>
+        <div class="col-lg-6">
+            <h1 class='text-center'>
+                <br>
+                <br>
+                <br>
+                {{ product.name }}
+            </h1>
+            <div class="">
+                <p>Автор: {{ product.author }}.</p>
+            </div>
+            <div class="">
+                <p>Жанр: {{ product.genre }}</p>
+            </div>
+            <div class="">
+                <p>Стоимость: {{ product.price }} рубля.</p>
+            </div>
+            <div class="">
+                <p>{{ product.description }}</p>
+            </div>
+            <div>
+                <form id="form_buying_product" class="form-inline">
+                <div class="form-group">
+                    <input type="number" class='form-control' name='number' id='number'>
+                </div>
+                <div class="form-group">
+                <button type="submit" id='submit_btn' class='btn btn-success btn-buy'
+                    data-product_id = '{{ product.pk }}'
+                    data-name = '{{ product.name }}'
+                    data-price = '{{ product.price }}'
+                >
+                    В корзину
+                </button>
+                </div>
+                </form>
+            </div> 
+        </div>
+    </div>
+</div>
+<p>{{ object.name }}</p>
 {% endblock content %}

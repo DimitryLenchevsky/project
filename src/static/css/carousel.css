@@ -109,8 +109,9 @@ body {
     left: 75px;
   }
 
-  .footer {
-    margin-bottom: -100px;
+  .footer1 {
+    position: relative;
+    margin-bottom: 180px;
     background-color: lightgrey;
     height: 200px;
   }
@@ -120,4 +121,19 @@ body {
     background-color: #b7b4b9;
     text-align: center;
     margin-bottom: 20px;
+  }
+
+  .basket-container {
+    position: relative;
+    width: 450px;
+    padding: 15px 10px;
+  }
+
+  .basket-items {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    background-color: hsla(254, 57%, 91%, 0.424);
+    z-index: 10;
+    padding: 10px;
   }

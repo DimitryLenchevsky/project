@@ -15,7 +15,9 @@
                 <div class="col-lg-3">
                     <div class='product-item'>
                         <div>
+                            <a href='{% url "products:detail" product_image.pk %}'>
                             <img src='{{ product_image.image.url }}' class="image-responsive" width='100px' height='150px'>
+                            </a>
                         </div>
                         <h6>{{ product_image.product.name|truncatechars_html:25 }}</h6>
                         <p>
@@ -42,7 +44,9 @@
                 <div class="col-lg-3">
                     <div class='product-item'>
                         <div>
+                            <a href='{% url "products:detail" product_image.pk %}'>
                             <img src='{{ product_image.image.url }}' class="image-responsive" width='100px' height='150px'>
+                            </a>
                         </div>
                         <h6>{{ product_image.product.name|truncatechars_html:25 }}</h6>
                         <p>
@@ -69,7 +73,9 @@
                 <div class="col-lg-3">
                     <div class='product-item'>
                         <div>
+                            <a href='{% url "products:detail" product_image.pk %}'>
                             <img src='{{ product_image.image.url }}' class="image-responsive" width='100px' height='150px'>
+                            </a>
                         </div>
                         <h6>{{ product_image.product.name|truncatechars_html:25 }}</h6>
                         <p>
