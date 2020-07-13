@@ -22,11 +22,11 @@
             <td>{{row.price}}</td>
             <td>{{row.genre}}</td>
             <td>{{row.description}}</td>
-            <!--<td> 
+            <td> 
                 <a href="{% url 'products:create' %}">Create</a>
                 <a href="{% url 'products:update' row.pk %}">Update</a>
                 <a href="{% url 'products:delete' row.pk %}">Delete</a>
-            </td>-->
+            </td>
         </tr>
         {% endfor %}
         </table>
