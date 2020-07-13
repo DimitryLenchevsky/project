@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+    {% block title %} Product Update {% endblock title %}
+{% block body %}
+<div class="container">
+<br>
+<br>
+<h1>Обновить тип товара</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-danger">Отправить</button>
+</form>
+</div>
+{% endblock body %}
