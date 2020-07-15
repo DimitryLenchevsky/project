@@ -2,25 +2,29 @@ from django.shortcuts import render
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 from . import models
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 # Create your views here.
 class ProductView(DetailView):
     model = models.Product
     template_name = 'products/templates/detail.html'
 
 
-class ProductListView(ListView):
+class ProductListView(LoginRequiredMixin, ListView):
     model = models.Product
     template_name = 'products/templates/list.html'
 
 
-class ProductCreateView(CreateView):
+
+class ProductCreateView(LoginRequiredMixin, CreateView):
     model = models.Product
     template_name = 'products/templates/create.html'
     fields = ('name', 'author', 'price', 'genre', 'description',)
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = models.Product
     template_name = 'products/templates/update.html'
     fields = ('name', 'author', 'price', 'genre', 'description',)
@@ -28,7 +32,7 @@ class ProductUpdateView(UpdateView):
         return reverse_lazy('products:detail', kwargs={'pk': self.object.pk})
     
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = models.Product
     template_name = 'products/templates/delete.html'
     success_url = '/products/templates/list.html/'
