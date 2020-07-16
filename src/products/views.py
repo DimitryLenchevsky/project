@@ -15,6 +15,7 @@ class ProductView(DetailView):
 class ProductListView(LoginRequiredMixin, ListView):
     model = models.Product
     template_name = 'products/templates/list.html'
+    paginate_by = 8
 
 
 

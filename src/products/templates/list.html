@@ -2,9 +2,11 @@
 {% load static %}
     {% block title %} Products types list {% endblock title %}
 {% block body %}
+    
     <div class="container">
     <br>
     <h1>Типы книг</h1>
+        {% include "paginator.html" %}
         <table class="table bordered-table">
         <tr>
             <th>pk</th>
