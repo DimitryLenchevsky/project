@@ -18,6 +18,7 @@ from django.urls import path, include
 from testapp.views import Test, CreateGenre, UpdateGenre, ListGenre, DeleteGenre, DetailGenre
 from django.conf import settings
 from django.conf.urls.static import static
+from products.auth_views import MyLogin, MyPasswordChangeView
 
 #from catalogs import urls as catalogs_urls
 
@@ -35,5 +36,7 @@ urlpatterns = [
     path('', include('landing.urls', namespace='landing')),
     path('', include('products.urls', namespace='products')),
     path('', include('orders.urls', namespace='orders')),
+    path('login/', MyLogin.as_view(), name='login'),
+    path('change-password/', MyPasswordChangeView.as_view()),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
