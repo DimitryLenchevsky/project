@@ -33,6 +33,7 @@ urlpatterns = [
     path('genre-type/<int:pk>', DetailGenre.as_view(), name='genre-type'),
     path('delete-genre/<int:pk>', DeleteGenre.as_view()),
     path('catalogs/', include('catalogs.urls', namespace='catalogs')),
+    path('checkout/', include('cart.urls', namespace='cart')),
     path('', include('landing.urls', namespace='landing')),
     path('', include('products.urls', namespace='products')),
     path('', include('orders.urls', namespace='orders')),

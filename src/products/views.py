@@ -17,6 +17,13 @@ class ProductListView(LoginRequiredMixin, ListView):
     template_name = 'products/templates/list.html'
     paginate_by = 8
 
+    def get_context_data(self, **kwargs):
+        key1 = self.request.GET.get('key1')
+        print(key1)
+        context = super().get_context_data(**kwargs)
+        context['key1'] = key1
+        return context
+
 
 
 class ProductCreateView(LoginRequiredMixin, CreateView):
