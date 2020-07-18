@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+    {% block title %} Cart {% endblock title %}
+{% block body %}
+    
+    <div class="container">
+    <br>
+    <h1>Содержимое корзины {{ object.product }}</h1>
+        <table class='table'>
+        <tr>
+            <th>Товар</th>
+            <th>Количество</th>
+            <th>Цена за единицу</th>
+            <th>Итого</th>
+        </tr>
+        {% for good_in_cart in object.products.all %}
+        
+            <tr>
+                <td>{{ good_in_cart.product.name }}</td>
+                <td>{{ good_in_cart.quantity }} шт.</td>
+                <td>{{ good_in_cart.product.price }} руб.</td>
+                <td>{{ good_in_cart.total_price }} руб.</td>
+            </tr>
+        {% endfor %}
+        </table>
+        <b>К оплате: </b> {{ object.total_price }} руб.
+    </div>
+
+{% endblock body %}

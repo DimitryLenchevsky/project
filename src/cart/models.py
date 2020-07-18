@@ -14,6 +14,13 @@ class Cart(models.Model):
     def __str__(self):
         return f'Cart #{self.pk}'
 
+    @property
+    def total_price(self):
+        total_price = 0
+        for good in self.products.all():
+            total_price += good.total_price
+        return total_price
+
 
 class ProductInCart(models.Model):
     cart = models.ForeignKey(
@@ -34,5 +41,10 @@ class ProductInCart(models.Model):
     def __str__(self):
         return f'Product #{self.product.name} in cart #{self.cart.pk}'
     
+    @property
+    def total_price(self):
+        total_price = self.quantity * self.product.price
+        return total_price
+
     class Meta:
         unique_together = (('cart', 'product'),)

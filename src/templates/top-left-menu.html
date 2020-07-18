@@ -3,6 +3,9 @@
 <li class="nav-item active">
     <a class="nav-link" href="/home/">На главную <span class="sr-only">(current)</span></a> 
 </li>
+<li class="nav-item active">
+    <a class="nav-link" href="{% url 'products:list' %}">Книги<span class="sr-only">(current)</span></a> 
+</li>
 {% if user.is_superuser %}
 <li class="nav-item">
     <a class="nav-link" href="/admin/">Админка</a> 
@@ -16,10 +19,9 @@
 <ul class="navbar-right nav navbar-nav mr-auto">
     <li>
         <div class="basket-container">
-            <a class='naw-link' href="">Корзина</a>
+            <a class='naw-link' href="{% url 'cart:cart' %}">Корзина</a>
             <div class="basket-items hidden">
                 <ul class="">
-                    <li>wewe</li>
                 </ul>
             </div>
         </div>
