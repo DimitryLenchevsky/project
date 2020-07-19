@@ -30,6 +30,7 @@
                 <a href="{% url 'products:update' row.pk %}">Update</a>
                 <a href="{% url 'products:delete' row.pk %}">Delete</a>
                 <a href="{% url 'cart:add' %}?product_pk={{ row.pk }}" class='btn btn-success'>В корзину</a>
+
             </td>
         </tr>
         {% endfor %}

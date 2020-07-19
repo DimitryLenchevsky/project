@@ -34,20 +34,7 @@
                 <p>{{ product.description }}</p>
             </div>
             <div>
-                <form id="form_buying_product" class="form-inline">
-                <div class="form-group">
-                    <input type="number" class='form-control' name='number' id='number'>
-                </div>
-                <div class="form-group">
-                <button type="submit" id='submit_btn' class='btn btn-success btn-buy'
-                    data-product_id = '{{ product.pk }}'
-                    data-name = '{{ product.name }}'
-                    data-price = '{{ product.price }}'
-                >
-                    В корзину
-                </button>
-                </div>
-                </form>
+                <a href="{% url 'cart:add' %}?product_pk={{ product.pk }}" class='btn btn-success'>В корзину</a>
             </div> 
         </div>
     </div>

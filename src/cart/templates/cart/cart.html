@@ -6,13 +6,14 @@
     
     <div class="container">
     <br>
-    <h1>Содержимое корзины {{ object.product }}</h1>
+    <h1>Содержимое корзины</h1>
         <table class='table'>
         <tr>
             <th>Товар</th>
             <th>Количество</th>
             <th>Цена за единицу</th>
             <th>Итого</th>
+            <th>#</th>
         </tr>
         {% for good_in_cart in object.products.all %}
         
@@ -21,10 +22,13 @@
                 <td>{{ good_in_cart.quantity }} шт.</td>
                 <td>{{ good_in_cart.product.price }} руб.</td>
                 <td>{{ good_in_cart.total_price }} руб.</td>
+                <td><a href="{% url 'cart:add' %}?product_pk={{good_in_cart.product.pk}}">Изменить</a>
+                <a href="{% url 'cart:delete' good_in_cart.pk %}">Удалить</a></td>
             </tr>
         {% endfor %}
         </table>
-        <b>К оплате: </b> {{ object.total_price }} руб.
+        <b>К оплате: </b> {{ object.total_price }} руб.<br>
+        <a href='' class='btn btn-success'>Оформить заказ</a>
     </div>
 
 {% endblock body %}

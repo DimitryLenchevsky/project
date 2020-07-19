@@ -10,6 +10,7 @@ User = get_user_model()
 class ProductView(DetailView):
     model = models.Product
     template_name = 'products/templates/detail.html'
+    success_url = 'products/templates/home.html'
 
 
 class ProductListView(LoginRequiredMixin, ListView):

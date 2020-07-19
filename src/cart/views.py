@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import UpdateView, DetailView
+from django.views.generic import UpdateView, DetailView, DeleteView
 from products.models import Product, ProductGenre, ProductImage
+from django.urls import reverse_lazy
 from . import models
 
 
@@ -49,3 +50,9 @@ class CartDetail(DetailView):
         if create:
             self.request.session['cart_pk'] = cart.pk
         return cart
+
+
+class ProductInCartDelete(DeleteView):
+    model = models.ProductInCart
+    template_name = 'cart/delete.html'
+    success_url = reverse_lazy('cart:cart')
