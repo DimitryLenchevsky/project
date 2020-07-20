@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
-    {% block title %} Cart {% endblock title %}
+    {% block title %} Оформить заказ {% endblock title %}
 {% block body %}
     <div class="container">
     <br>
-    <h1>Содержимое корзины</h1>
+    <br>
+    <h1>Оформить заказ {{ object }}</h1>
+        <h1>Содержимое заказа</h1>
         <table class='table'>
         <tr>
             <th>Товар</th>
@@ -14,7 +16,7 @@
             <th>Итого</th>
             <th>#</th>
         </tr>
-        {% for good_in_cart in object.products.all %}
+        {% for good_in_cart in object.cart.products.all %}
             <tr>
                 <td>{{ good_in_cart.product.name }}</td>
                 <td>{{ good_in_cart.quantity }} шт.</td>
@@ -25,7 +27,11 @@
             </tr>
         {% endfor %}
         </table>
-        <b>К оплате: </b> {{ object.total_price }} руб.<br>
-        <a href="{% url 'order:create' %}" class='btn btn-success'>Оформить заказ</a>
+        <b>К оплате: </b> {{ object.cart.total_price }} руб.<br><br><br><br><br>
+        <form action='' method='post'>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type='submit' class='btn btn-success'>Оформить</button>
+        </form>
     </div>
 {% endblock body %}
